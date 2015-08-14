@@ -11,7 +11,11 @@ import argparse
 import re
 
 parser = argparse.ArgumentParser(description='Installs and configures Puppet on OS X')
-parser.add_argument('--server', help='The URL of the Puppet Server. Defaults to google.com')
+parser.add_argument('--server', help='The URL of the Puppet Server. Defaults to puppet.grahamgilbert.dev')
+parser.add_argument('--certname', help='The certname of the client. Defaults to client.grahamgilbert.dev')
+parser.add_argument('--serial', action='store_true', help='Use the Mac\'s serial number as the certname')
+parser.add_argument('--clean_serial', action='store_true', help='Use the Mac\'s serial number as the certname, with aaa prepended to it if the first character is a digit.')
+parser.add_argument('--appendhosts', action='store_true', help='If using with the Vagrant-based Puppet Master, appends the hosts file with the default IP address')
 args = vars(parser.parse_args())
 
 if args['server']:

@@ -8,9 +8,8 @@ import logging.config
 import sys
 import plistlib
 import optparse
-import pull_scripts
+import download_file
 import os
-import urllib2
 
 
 #Configure Logging
@@ -19,7 +18,7 @@ logger = logging.getLogger("rlc_deploy")
 
 #Set some variables
 deploy_dir = './'
-config_plist = os.path.join(deploy_dir, 'test.plist')
+config_plist = 'test1.plist'
 script_dir = os.path.join(deploy_dir, 'scripts')
 packages_dir = os.path.join(deploy_dir, 'packages')
 installer = '/usr/sbin/installer'
@@ -29,13 +28,20 @@ installer = '/usr/sbin/installer'
 usage = "%prog [options]"
 o = optparse.OptionParser(usage=usage)
 
+o.add_option("-p", "--plist",dest="plist_url",
+              help=("Optional. Path to an XML plist file containing "
+                    "key/value pairs for Version, Name, Output directory, Identifier, "
+                    "and Packages. "), metavar="PLIST_FILE")
 
-o.add_option("--plist",
-    help=("Optional. Path to an XML plist file containing "
-          "key/value pairs for Version, Name, Output directory, Identifier, "
-          "and Packages. "))
 
 opts, args = o.parse_args()
+
+#logger.info("Some More Info")
+#logger.info("plist %s" % opts.plist)
+#logger.info(args)
+
+plist_url = opts.plist_url
+logger.info(plist_url)
 
 def ip_addresses():
     command = "ifconfig  | grep -E 'inet.[0-9]' | grep -v '127.0.0.1' | awk '{ print $2}' | wc -l"
@@ -72,7 +78,7 @@ def main():
     if not success:
         logger.critical('No Connection Available')
         sys.exit()
-
+    download_file.download(opts.plist_url,'test1.plist')
     plist_opts = plistlib.readPlist(config_plist)
     # 'application' code
     #logger.debug('debug message')
@@ -85,11 +91,7 @@ def main():
     # Check if we're using a plist.
     # If there aren't packages and no plist (with packages in), bail
     plist_opts = {}
-    if opts.plist:
-        try:
-            plist_opts = plistlib.readPlist(opts.plist)
-        except (ExpatError, IOError), err:
-            fail('Could not read %s: %s' % (opts.plist, err))
+    plist_opts = plistlib.readPlist(config_plist)
 
 
     # Run over all of the packages and see if they look OK
@@ -101,6 +103,7 @@ def main():
     logger.info('----------------------------------------------------------------')
     script_number = len(boot_scripts)
     logger.info("Number Of Scripts: %s" % script_number)
+    os.remove(config_plist)
 
 if __name__ == '__main__':
     main()
