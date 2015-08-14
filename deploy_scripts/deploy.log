@@ -1,0 +1,77 @@
+2015-08-14 13:17:56,532 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:17:56,532 - rlc_deploy - INFO - info message
+2015-08-14 13:17:56,532 - rlc_deploy - WARNING - warn message
+2015-08-14 13:17:56,532 - rlc_deploy - ERROR - error message
+2015-08-14 13:17:56,532 - rlc_deploy - CRITICAL - critical message
+2015-08-14 13:17:56,532 - rlc_deploy - INFO - INTERNET WORKS
+2015-08-14 13:18:02,290 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:18:02,291 - rlc_deploy - INFO - info message
+2015-08-14 13:18:02,291 - rlc_deploy - WARNING - warn message
+2015-08-14 13:18:02,291 - rlc_deploy - ERROR - error message
+2015-08-14 13:18:02,291 - rlc_deploy - CRITICAL - critical message
+2015-08-14 13:18:02,291 - rlc_deploy - INFO - INTERNET WORKS
+2015-08-14 13:22:25,109 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:22:25,111 - rlc_deploy - INFO - info message
+2015-08-14 13:22:25,111 - rlc_deploy - WARNING - warn message
+2015-08-14 13:22:25,112 - rlc_deploy - ERROR - error message
+2015-08-14 13:22:25,112 - rlc_deploy - CRITICAL - critical message
+2015-08-14 13:22:25,112 - rlc_deploy - INFO - INTERNET WORKS
+2015-08-14 13:25:33,363 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:25:33,364 - rlc_deploy - INFO - info message
+2015-08-14 13:25:33,364 - rlc_deploy - WARNING - warn message
+2015-08-14 13:25:33,364 - rlc_deploy - ERROR - error message
+2015-08-14 13:25:33,364 - rlc_deploy - CRITICAL - critical message
+2015-08-14 13:25:33,365 - rlc_deploy - INFO - INTERNET WORKS
+2015-08-14 13:31:48,130 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:31:48,131 - rlc_deploy - INFO - info message
+2015-08-14 13:31:48,131 - rlc_deploy - WARNING - warn message
+2015-08-14 13:31:48,131 - rlc_deploy - ERROR - error message
+2015-08-14 13:31:48,131 - rlc_deploy - CRITICAL - critical message
+2015-08-14 13:31:48,132 - rlc_deploy - INFO - INTERNET WORKS
+2015-08-14 13:32:27,869 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:32:27,870 - rlc_deploy - INFO - info message
+2015-08-14 13:32:27,870 - rlc_deploy - WARNING - warn message
+2015-08-14 13:32:27,870 - rlc_deploy - ERROR - error message
+2015-08-14 13:32:27,870 - rlc_deploy - CRITICAL - critical message
+2015-08-14 13:32:27,871 - rlc_deploy - INFO - INTERNET WORKS
+2015-08-14 13:33:31,609 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:33:31,611 - rlc_deploy - INFO - info message
+2015-08-14 13:33:31,611 - rlc_deploy - WARNING - warn message
+2015-08-14 13:33:31,611 - rlc_deploy - ERROR - error message
+2015-08-14 13:33:31,611 - rlc_deploy - CRITICAL - critical message
+2015-08-14 13:33:31,612 - rlc_deploy.pullscripts.add - INFO - added 7 and 8 to get 15
+2015-08-14 13:50:28,002 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:50:36,797 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:50:46,745 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:52:08,381 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:52:23,164 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:53:03,639 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:53:58,720 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:54:14,356 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:54:21,314 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:54:37,016 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:55:16,409 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:55:37,427 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:57:14,916 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:57:26,730 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:57:38,388 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:58:01,788 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 13:58:13,388 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 14:00:20,283 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 14:00:32,164 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 14:03:18,102 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 14:03:29,140 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 14:04:16,418 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 14:04:16,423 - rlc_deploy - INFO - Getting Scripts:
+2015-08-14 14:04:16,424 - rlc_deploy - INFO - ----------------------------------------------------------------
+2015-08-14 14:04:16,424 - rlc_deploy - INFO - pkgs/configure_wifi/Configure_Wifi.pkg
+2015-08-14 14:04:16,424 - rlc_deploy - INFO - pkgs/outset/outset-1.0.1.pkg
+2015-08-14 14:04:16,424 - rlc_deploy - INFO - pkgs/migrate_scriptrunner/scriptRunnerToOutset.pkg
+2015-08-14 14:04:16,424 - rlc_deploy - INFO - pkgs/scriptrunner_initialconfig/initialconfig.pkg
+2015-08-14 14:04:16,424 - rlc_deploy - INFO - pkgs/uninstall_munki/uninstall_munki.pkg
+2015-08-14 14:04:16,424 - rlc_deploy - INFO - pkgs/remove_profiles/removeprofiles.pkg
+2015-08-14 14:04:16,424 - rlc_deploy - INFO - pkgs/puppet_bootstrap/install_puppet.pkg
+2015-08-14 14:04:16,424 - rlc_deploy - INFO - pkgs/bootstrap_munki/bootstrap_munki.pkg
+2015-08-14 14:04:16,424 - rlc_deploy - INFO - pkgs/run_puppet/run_puppet.pkg
+2015-08-14 14:04:16,425 - rlc_deploy - INFO - ----------------------------------------------------------------
+2015-08-14 14:04:16,425 - rlc_deploy - INFO - Number Of Scripts: 9
