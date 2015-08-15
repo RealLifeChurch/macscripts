@@ -385,3 +385,51 @@
 2015-08-14 14:45:06,648 - rlc_deploy - INFO - pkgs/run_puppet/run_puppet.pkg
 2015-08-14 14:45:06,648 - rlc_deploy - INFO - ----------------------------------------------------------------
 2015-08-14 14:45:06,648 - rlc_deploy - INFO - Number Of Scripts: 9
+2015-08-14 22:48:25,405 - rlc_deploy - INFO - None
+2015-08-14 22:48:25,638 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 22:48:55,134 - rlc_deploy - INFO - None
+2015-08-14 22:48:55,167 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 22:49:39,111 - rlc_deploy - INFO - None
+2015-08-14 22:49:39,136 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 22:49:46,356 - rlc_deploy - INFO - None
+2015-08-14 22:49:46,381 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 22:54:31,029 - rlc_deploy - INFO - None
+2015-08-14 22:54:31,060 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 22:55:31,854 - rlc_deploy - INFO - None
+2015-08-14 22:55:31,879 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 23:02:35,449 - rlc_deploy - INFO - https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/test.plist
+2015-08-14 23:02:35,475 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 23:03:12,459 - rlc_deploy - INFO - https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/test.plist
+2015-08-14 23:03:12,480 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 23:03:46,420 - rlc_deploy - INFO - https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/test.plist
+2015-08-14 23:03:46,452 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 23:06:39,666 - rlc_deploy - INFO - https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/test.plist
+2015-08-14 23:06:39,692 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 23:06:40,050 - rlc_deploy - INFO - Getting Scripts:
+2015-08-14 23:06:40,050 - rlc_deploy - INFO - ----------------------------------------------------------------
+2015-08-14 23:06:40,050 - rlc_deploy - INFO - pkgs/configure_wifi/Configure_Wifi.pkg
+2015-08-14 23:06:40,050 - rlc_deploy - INFO - pkgs/outset/outset-1.0.1.pkg
+2015-08-14 23:06:40,050 - rlc_deploy - INFO - pkgs/migrate_scriptrunner/scriptRunnerToOutset.pkg
+2015-08-14 23:06:40,051 - rlc_deploy - INFO - pkgs/scriptrunner_initialconfig/initialconfig.pkg
+2015-08-14 23:06:40,051 - rlc_deploy - INFO - pkgs/uninstall_munki/uninstall_munki.pkg
+2015-08-14 23:06:40,051 - rlc_deploy - INFO - pkgs/remove_profiles/removeprofiles.pkg
+2015-08-14 23:06:40,051 - rlc_deploy - INFO - pkgs/puppet_bootstrap/install_puppet.pkg
+2015-08-14 23:06:40,051 - rlc_deploy - INFO - pkgs/bootstrap_munki/bootstrap_munki.pkg
+2015-08-14 23:06:40,051 - rlc_deploy - INFO - pkgs/run_puppet/run_puppet.pkg
+2015-08-14 23:06:40,051 - rlc_deploy - INFO - ----------------------------------------------------------------
+2015-08-14 23:06:40,052 - rlc_deploy - INFO - Number Of Scripts: 9
+2015-08-14 23:07:45,415 - rlc_deploy - INFO - https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/test.plist
+2015-08-14 23:07:45,435 - rlc_deploy - INFO - Network connection is active. 
+2015-08-14 23:07:46,318 - rlc_deploy - INFO - Getting Scripts:
+2015-08-14 23:07:46,318 - rlc_deploy - INFO - ----------------------------------------------------------------
+2015-08-14 23:07:46,318 - rlc_deploy - INFO - pkgs/configure_wifi/Configure_Wifi.pkg
+2015-08-14 23:07:46,318 - rlc_deploy - INFO - pkgs/outset/outset-1.0.1.pkg
+2015-08-14 23:07:46,318 - rlc_deploy - INFO - pkgs/migrate_scriptrunner/scriptRunnerToOutset.pkg
+2015-08-14 23:07:46,319 - rlc_deploy - INFO - pkgs/scriptrunner_initialconfig/initialconfig.pkg
+2015-08-14 23:07:46,319 - rlc_deploy - INFO - pkgs/uninstall_munki/uninstall_munki.pkg
+2015-08-14 23:07:46,319 - rlc_deploy - INFO - pkgs/remove_profiles/removeprofiles.pkg
+2015-08-14 23:07:46,319 - rlc_deploy - INFO - pkgs/puppet_bootstrap/install_puppet.pkg
+2015-08-14 23:07:46,319 - rlc_deploy - INFO - pkgs/bootstrap_munki/bootstrap_munki.pkg
+2015-08-14 23:07:46,319 - rlc_deploy - INFO - pkgs/run_puppet/run_puppet.pkg
+2015-08-14 23:07:46,320 - rlc_deploy - INFO - ----------------------------------------------------------------
+2015-08-14 23:07:46,320 - rlc_deploy - INFO - Number Of Scripts: 9
