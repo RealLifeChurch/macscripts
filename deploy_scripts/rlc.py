@@ -91,6 +91,7 @@ def main():
     script_number = len(boot_scripts)
     logger.info("Number Of Scripts: %s" % script_number)
     os.remove(config_plist)
-
+    download_path = os.path.split(plist_url)
+    print download_path[0]
 if __name__ == '__main__':
     main()
