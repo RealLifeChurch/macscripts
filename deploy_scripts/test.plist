@@ -4,15 +4,7 @@
 <dict>
     <key>Scripts</key>
     <array>
-        <string>pkgs/configure_wifi/Configure_Wifi.pkg</string>
-        <string>pkgs/outset/outset-1.0.1.pkg</string>
-        <string>pkgs/migrate_scriptrunner/scriptRunnerToOutset.pkg</string>
-        <string>pkgs/scriptrunner_initialconfig/initialconfig.pkg</string>
-        <string>pkgs/uninstall_munki/uninstall_munki.pkg</string>
-        <string>pkgs/remove_profiles/removeprofiles.pkg</string>
-        <string>pkgs/puppet_bootstrap/install_puppet.pkg</string>
-        <string>pkgs/bootstrap_munki/bootstrap_munki.pkg</string>
-        <string>pkgs/run_puppet/run_puppet.pkg</string>
+        <string>simian/test.py</string>
     </array>
     <key>Name</key>
     <string>simian-migration.pkg</string>

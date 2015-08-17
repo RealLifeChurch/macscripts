@@ -17,13 +17,10 @@ logging.config.fileConfig('logging.conf')
 logger = logging.getLogger("rlc_deploy")
 
 #Set some variables
-deploy_dir = './'
-config_plist = 'test1.plist'
+deploy_dir = './deploy/'
 script_dir = os.path.join(deploy_dir, 'scripts')
-packages_dir = os.path.join(deploy_dir, 'packages')
-installer = '/usr/sbin/installer'
-
-
+if not os.path.exists(script_dir):
+    os.makedirs(script_dir)
 #Configure Arguments
 usage = "%prog [options]"
 o = optparse.OptionParser(usage=usage)
@@ -35,10 +32,8 @@ o.add_option("-p", "--plist",dest="plist_url",
 
 
 opts, args = o.parse_args()
-
-#logger.info("Some More Info")
-#logger.info("plist %s" % opts.plist)
-#logger.info(args)
+plist_name = os.path.basename(opts.plist_url)
+config_plist = os.path.join(deploy_dir, plist_name)
 
 plist_url = opts.plist_url
 logger.info(plist_url)
@@ -78,16 +73,8 @@ def main():
     if not success:
         logger.critical('No Connection Available')
         sys.exit()
-    download_file.download(opts.plist_url,'test1.plist')
+    download_file.downloadChunks(opts.plist_url,deploy_dir)
     plist_opts = plistlib.readPlist(config_plist)
-    # 'application' code
-    #logger.debug('debug message')
-    #logger.info('info message')
-    #logger.warn('warn message')
-    #logger.error('error message')
-    #logger.critical('critical message')
-    #result = pull_scripts.add(7, 8)
-
     # Check if we're using a plist.
     # If there aren't packages and no plist (with packages in), bail
     plist_opts = {}
@@ -104,6 +91,7 @@ def main():
     script_number = len(boot_scripts)
     logger.info("Number Of Scripts: %s" % script_number)
     os.remove(config_plist)
-
+    download_path = os.path.split(plist_url)
+    print download_path[0]
 if __name__ == '__main__':
     main()
