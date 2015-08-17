@@ -1,1 +1,3 @@
 *.pyc
+deploy_scripts/build
+deploy_scripts/deploy-scripts

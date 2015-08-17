@@ -18,9 +18,10 @@ logging.config.fileConfig('logging.conf')
 logger = logging.getLogger("rlc_deploy")
 
 #Set some variables
-deploy_dir = '/usr/local/deploy-scripts/'
+deploy_dir = './deploy-scripts/'
 script_dir = os.path.join(deploy_dir, 'scripts')
 config_plist = os.path.join(deploy_dir, 'config.plist')
+shutil.copy2('logging.conf', script_dir)
 if not os.path.exists(script_dir):
     os.makedirs(script_dir)
 #Configure Arguments
@@ -133,7 +134,7 @@ def main():
         script_name = os.path.basename(script)
         logger.info ('Starting %s' % script_name )
         logger.info ('--------')
-        download_file.downloadChunks(download,script_dir)
+        #download_file.downloadChunks(download,script_dir)
         make_executable(script_dir + '/' + script_name)
         process = subprocess.Popen([script_dir + '/' + script_name])
         process.wait()
@@ -142,7 +143,7 @@ def main():
     logger.info('----------------------------------------------------------------')
     script_number = len(boot_scripts)
     logger.info("Number Of Scripts: %s" % script_number)
-    cleanup()
+    #cleanup()
 
 if __name__ == '__main__':
     main()
