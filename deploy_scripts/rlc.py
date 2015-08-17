@@ -10,7 +10,8 @@ import plistlib
 import optparse
 import download_file
 import os
-
+import stat
+import shutil
 
 #Configure Logging
 logging.config.fileConfig('logging.conf')
@@ -37,6 +38,30 @@ config_plist = os.path.join(deploy_dir, plist_name)
 
 plist_url = opts.plist_url
 logger.info(plist_url)
+
+def Exec(cmd):
+  """Executes a process and returns exit code, stdout, stderr.
+  Args:
+    cmd: str or sequence, command and optional arguments to execute.
+  Returns:
+    Tuple. (Integer return code, string standard out, string standard error).
+  """
+  if type(cmd) is str:
+    shell = True
+  else:
+    shell = False
+  try:
+    p = subprocess.Popen(
+      cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=shell)
+    stdout, stderr = p.communicate()
+    return p.returncode, stdout, stderr
+  except (IOError, OSError), e:
+    return (99, '', str(e))
+
+def make_executable(path):
+    mode = os.stat(path).st_mode
+    mode |= (mode & 0444) >> 2    # copy R bits to X
+    os.chmod(path, mode)
 
 def ip_addresses():
     command = "ifconfig  | grep -E 'inet.[0-9]' | grep -v '127.0.0.1' | awk '{ print $2}' | wc -l"
@@ -83,15 +108,26 @@ def main():
 
     # Run over all of the packages and see if they look OK
     boot_scripts = plist_opts.get('Scripts')
-    logger.info('Getting Scripts:')
+    download_path = os.path.split(plist_url)
+    download_path = download_path[0]
+    print download_path
+    logger.info('Downloading and Running:')
     logger.info('----------------------------------------------------------------')
     for script in boot_scripts:
-        logger.info ('%s' % script)
+        s = '/'
+        scripts = download_path, script
+        download = s.join(scripts)
+        script_name = os.path.basename(script)
+        logger.info ('%s' % script_name )
+        logger.info ('------')
+        download_file.downloadChunks(download,script_dir)
+        make_executable(script_dir + '/' + script_name)
+        process = subprocess.Popen([script_dir + '/' + script_name])
+        process.wait()
     logger.info('----------------------------------------------------------------')
     script_number = len(boot_scripts)
     logger.info("Number Of Scripts: %s" % script_number)
-    os.remove(config_plist)
-    download_path = os.path.split(plist_url)
-    print download_path[0]
+    shutil.rmtree(deploy_dir)
+
 if __name__ == '__main__':
     main()
