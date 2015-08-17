@@ -134,7 +134,7 @@ def main():
         script_name = os.path.basename(script)
         logger.info ('Starting %s' % script_name )
         logger.info ('--------')
-        #download_file.downloadChunks(download,script_dir)
+        download_file.downloadChunks(download,script_dir)
         make_executable(script_dir + '/' + script_name)
         process = subprocess.Popen([script_dir + '/' + script_name])
         process.wait()
