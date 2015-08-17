@@ -20,6 +20,7 @@ logger = logging.getLogger("rlc_deploy")
 #Set some variables
 deploy_dir = '/usr/local/deploy-scripts/'
 script_dir = os.path.join(deploy_dir, 'scripts')
+config_plist = os.path.join(deploy_dir, 'config.plist')
 if not os.path.exists(script_dir):
     os.makedirs(script_dir)
 #Configure Arguments

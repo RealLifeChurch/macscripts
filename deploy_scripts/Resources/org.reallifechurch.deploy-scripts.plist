@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>org.reallifechurch.deploy-scripts</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/local/deploy-scripts/rlc.py --plist https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/test.plist</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StartInterval</key>
+	<integer>20</integer>
+</dict>
+</plist>
