@@ -9,9 +9,11 @@
     <key>Name</key>
     <string>simian-migration.pkg</string>
     <key>Identifier</key>
-    <string>org.reallifechurch.simian-migration.pkg</string>
+    <string>org.reallifechurch.deploy-scripts</string>
     <key>LaunchDaemonIdentifier</key>
-    <string>org.reallifechurch.simian-migration</string>
+    <string>org.reallifechurch.deploy-scripts</string>
+    <key>LaunchDaemon</key>
+    <string>org.reallifechurch.deploy-scripts</string>
     <key>Version</key>
     <string>1.0</string>
     <key>Network</key>

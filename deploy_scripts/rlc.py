@@ -18,7 +18,7 @@ logging.config.fileConfig('logging.conf')
 logger = logging.getLogger("rlc_deploy")
 
 #Set some variables
-deploy_dir = './deploy/'
+deploy_dir = '/usr/local/deploy-scripts/'
 script_dir = os.path.join(deploy_dir, 'scripts')
 if not os.path.exists(script_dir):
     os.makedirs(script_dir)
@@ -69,13 +69,25 @@ def ip_addresses():
     return proc.communicate()[0].replace('\n', '')
 
 def all_done():
-    if not os.listdir(packages_dir):
+    if not os.listdir(script_dir):
         sleep_time=10
         time.sleep(sleep_time)
         cleanup()
-        subprocess.call(['/sbin/reboot'])
+        #subprocess.call(['/sbin/reboot'])
 
-
+def cleanup():
+    log_path = open(logfile, 'a')
+    log.info('No more packages have been found to install, cleaning up.')
+    # remove launchdaemon
+    plist_opts = plistlib.readPlist(config_plist)
+    launchd = os.path.join('/Library/LaunchDaemons/', plist_opts.get('LaunchDaemon'))
+    os.remove(launchd)
+    # remove launchagent
+    os.remove('/Library/LaunchAgents/se.gu.it.LoginLog.plist')
+    # remove loginlog.app
+    shutil.rmtree('/Library/PrivilegedHelperTools/LoginLog.app')
+    # remove firstboot_dir
+    shutil.rmtree(deploy_dir)
 
 def main():
     #Don't run this yet.... enable in the end
@@ -118,16 +130,18 @@ def main():
         scripts = download_path, script
         download = s.join(scripts)
         script_name = os.path.basename(script)
-        logger.info ('%s' % script_name )
-        logger.info ('------')
+        logger.info ('Starting %s' % script_name )
+        logger.info ('--------')
         download_file.downloadChunks(download,script_dir)
         make_executable(script_dir + '/' + script_name)
         process = subprocess.Popen([script_dir + '/' + script_name])
         process.wait()
+        logger.info('Finished %s' % script_name)
+        logger.info('--------')
     logger.info('----------------------------------------------------------------')
     script_number = len(boot_scripts)
     logger.info("Number Of Scripts: %s" % script_number)
-    shutil.rmtree(deploy_dir)
+    cleanup()
 
 if __name__ == '__main__':
     main()
