@@ -9,6 +9,13 @@ import math
 import time
 import argparse
 import re
+import logging
+import logging.config
+
+logging.config.fileConfig('logging.conf')
+logger = logging.getLogger("rlc_deploy.puppetinstall")
+
+sys.stdout = Logger()
 
 parser = argparse.ArgumentParser(description='Installs and configures Puppet on OS X')
 parser.add_argument('--server', help='The URL of the Puppet Server. Defaults to puppet.grahamgilbert.dev')

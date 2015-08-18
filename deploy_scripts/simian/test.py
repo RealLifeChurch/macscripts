@@ -11,9 +11,17 @@ import argparse
 import re
 import logging
 import logging.config
+import sys
 
-logging.config.fileConfig('logging.conf')
-logger = logging.getLogger("rlc_deploy.test")
+class Logger(object):
+    def __init__(self):
+        self.terminal = sys.stdout
+        self.log = open("logfile.log", "a")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+sys.stdout = Logger()
 
 parser = argparse.ArgumentParser(description='Installs and configures Puppet on OS X')
 parser.add_argument('--server', help='The URL of the Puppet Server. Defaults to puppet.grahamgilbert.dev')
@@ -92,5 +100,5 @@ if internet_on:
     serial = serial.replace("/", "")
     certname = serial.lower()
 
-    logger.info("Server: %s" % puppetserver)
-    logger.info("Certname: %s" % certname)
+    print("Server: %s" % puppetserver)
+    print("Certname: %s" % certname)
