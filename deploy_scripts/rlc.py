@@ -21,9 +21,10 @@ logger = logging.getLogger("rlc_deploy")
 deploy_dir = '/usr/local/deploy-scripts/'
 script_dir = os.path.join(deploy_dir, 'scripts')
 config_plist = os.path.join(deploy_dir, 'config.plist')
-shutil.copy2('logging.conf', script_dir)
 if not os.path.exists(script_dir):
     os.makedirs(script_dir)
+    
+shutil.copy2('logging.conf', script_dir)
 #Configure Arguments
 usage = "%prog [options]"
 o = optparse.OptionParser(usage=usage)

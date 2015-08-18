@@ -10,8 +10,7 @@
 	<true/>
 	<key>ProgramArguments</key>
 	<array>
-		<string>python</string>
-		<string>/usr/local/deploy-scripts/rlc.py</string>
+		<string>/usr/local/deploy-scripts/rlc.py --plist https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/test.plist</string>
 	</array>
 	<key>RootDirectory</key>
 	<string>/usr/local/deploy-scripts/</string>
