@@ -23,7 +23,7 @@ script_dir = os.path.join(deploy_dir, 'scripts')
 config_plist = os.path.join(deploy_dir, 'config.plist')
 if not os.path.exists(script_dir):
     os.makedirs(script_dir)
-    
+
 shutil.copy2('logging.conf', script_dir)
 #Configure Arguments
 usage = "%prog [options]"
@@ -80,15 +80,7 @@ def all_done():
 
 def cleanup():
     logger.info('Everything is installed, cleaning up.')
-    # remove launchdaemon
-    plist_opts = plistlib.readPlist(config_plist)
-    launchd = os.path.join('/Library/LaunchDaemons/', plist_opts.get('LaunchDaemon'))
-    os.remove(launchd)
-    # remove launchagent
-    os.remove('/Library/LaunchAgents/se.gu.it.LoginLog.plist')
-    # remove loginlog.app
-    shutil.rmtree('/Library/PrivilegedHelperTools/LoginLog.app')
-    # remove firstboot_dir
+    # remove deploy_dir
     shutil.rmtree(deploy_dir)
 
 def main():

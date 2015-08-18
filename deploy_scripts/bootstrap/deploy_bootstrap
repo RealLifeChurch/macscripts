@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Your Puppet server here
+PUPPETSERVER='puppet.grahamgilbert.dev'
+
+TESTURL='https://raw.github.com'
+
+# Test for network conection. Github needs to be up for this to work, so it might as well be that
+if curl --output /dev/null --silent --head --fail "$TESTURL"; then
+  echo "URL exists: $TESTURL"
+else
+  exit 1
+fi
+
+# Download, install and configure Puppet and Facter
+mkdir -p /usr/local/deploy-scripts/
+curl -o /usr/local/deploy-scripts/rlc.py https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/rlc.py
+curl -o /usr/local/deploy-scripts/logging.conf https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/logging.conf
+curl -o /usr/local/deploy-scripts/config.plist https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/config.plist
+curl -o /usr/local/deploy-scripts/download_file.py https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/download_file.py
+#curl -o /usr/local/deploy-scripts/ https://raw.github.com/RealLifeChurch/macscripts/blob/master/deploy_scripts/
+#curl -o /usr/local/deploy-scripts/ https://raw.github.com/RealLifeChurch/macscripts/blob/master/deploy_scripts/
+
+cd /usr/local/deploy-scripts
+python /usr/local/deploy-scripts/rlc.py --plist https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/test.plist
+
+# Run Puppet
+#puppet agent -t > /var/log/deploy.log
+#managedsoftwareupdate -v > /var/log/deploy.log
+#managedsoftwareupdate -v --installonly > /var/log/deploy.log
+#managedsoftwareupdate -v > /var/log/deploy.log
+#managedsoftwareupdate -v --installonly > /var/log/deploy.log
+#managedsoftwareupdate -v > /var/log/deploy.log
+
+# Clean up a little
+#rm /Library/LaunchDaemons/org.reallifechurch.deploy.plist
+#rm -r /usr/local/puppet_bootstrap
+
+# reboot
+#reboot
