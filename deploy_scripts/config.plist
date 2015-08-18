@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>LaunchDaemon</key>
-	<string>org.reallifechurch.deploy-scripts.plist</string>
+	<string>org.reallifechurch.deploy.plist</string>
 	<key>Network</key>
 	<false/>
 	<key>RetryCount</key>

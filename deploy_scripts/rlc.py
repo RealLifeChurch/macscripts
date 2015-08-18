@@ -14,24 +14,16 @@ import stat
 import shutil
 
 #Configure Logging
-class Logger(object):
-    def __init__(self):
-        self.terminal = sys.stdout
-        self.log = open("logfile.log", "a")
-
-    def write(self, message):
-        self.terminal.write(message)
-        self.log.write(message)
-sys.stdout = Logger()
+logging.config.fileConfig('logging.conf')
+logger = logging.getLogger("rlc_deploy")
 
 #Set some variables
-deploy_dir = './deploy-scripts/'
+deploy_dir = '/usr/local/deploy-scripts/'
 script_dir = os.path.join(deploy_dir, 'scripts')
 config_plist = os.path.join(deploy_dir, 'config.plist')
+shutil.copy2('logging.conf', script_dir)
 if not os.path.exists(script_dir):
     os.makedirs(script_dir)
-
-shutil.copy2('logging.conf', script_dir)
 #Configure Arguments
 usage = "%prog [options]"
 o = optparse.OptionParser(usage=usage)
@@ -47,7 +39,7 @@ plist_name = os.path.basename(opts.plist_url)
 config_plist = os.path.join(deploy_dir, plist_name)
 
 plist_url = opts.plist_url
-print(plist_url)
+logger.info(plist_url)
 
 def Exec(cmd):
   """Executes a process and returns exit code, stdout, stderr.
@@ -86,10 +78,15 @@ def all_done():
         #subprocess.call(['/sbin/reboot'])
 
 def cleanup():
+    logger.info('Everything is installed, cleaning up.')
     # remove launchdaemon
-    launchd = os.path.join('/Library/LaunchDaemons/org.reallifechurch.deploy.plist')
+    plist_opts = plistlib.readPlist(config_plist)
+    launchd = os.path.join('/Library/LaunchDaemons/', plist_opts.get('LaunchDaemon'))
     os.remove(launchd)
     # remove launchagent
+    os.remove('/Library/LaunchAgents/se.gu.it.LoginLog.plist')
+    # remove loginlog.app
+    shutil.rmtree('/Library/PrivilegedHelperTools/LoginLog.app')
     # remove firstboot_dir
     shutil.rmtree(deploy_dir)
 
@@ -103,16 +100,16 @@ def main():
     while retries < max_retries:
         print ip_addresses()
         if ip_addresses().strip() != "0":
-            print('Network connection is active. ')
+            logger.info('Network connection is active. ')
             success = True
             break
         else:
-            print('No Connection Yet, trying again in 5 seconds')
+            logger.info('No Connection Yet, trying again in 5 seconds')
             time.sleep(5)
             retries += 1
 
     if not success:
-        print('No Connection Available')
+        logger.critical('No Connection Available')
         sys.exit()
     download_file.downloadChunks(opts.plist_url,deploy_dir)
     plist_opts = plistlib.readPlist(config_plist)
@@ -127,25 +124,25 @@ def main():
     download_path = os.path.split(plist_url)
     download_path = download_path[0]
     print download_path
-    print('Downloading and Running:')
-    print('----------------------------------------------------------------')
+    logger.info('Downloading and Running:')
+    logger.info('----------------------------------------------------------------')
     for script in boot_scripts:
         s = '/'
         scripts = download_path, script
         download = s.join(scripts)
         script_name = os.path.basename(script)
-        print ('Starting %s' % script_name )
-        print ('--------')
+        logger.info ('Starting %s' % script_name )
+        logger.info ('--------')
         download_file.downloadChunks(download,script_dir)
         make_executable(script_dir + '/' + script_name)
         process = subprocess.Popen([script_dir + '/' + script_name])
         process.wait()
-        print('Finished %s' % script_name)
-        print('--------')
-    print('----------------------------------------------------------------')
+        logger.info('Finished %s' % script_name)
+        logger.info('--------')
+    logger.info('----------------------------------------------------------------')
     script_number = len(boot_scripts)
-    print("Number Of Scripts: %s" % script_number)
-    #cleanup()
+    logger.info("Number Of Scripts: %s" % script_number)
+    cleanup()
 
 if __name__ == '__main__':
     main()
