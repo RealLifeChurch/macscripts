@@ -6,7 +6,7 @@
 	<string>org.reallifechurch.deploy_bootstrap</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/deploy_scripts/deploy_bootstrap</string>
+		<string>/usr/local/deploy-scripts/bootstrap/deploy_bootstrap</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

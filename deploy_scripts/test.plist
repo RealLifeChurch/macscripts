@@ -4,7 +4,7 @@
 <dict>
     <key>Scripts</key>
     <array>
-        <string>simian/test.py</string>
+        <string>simian/install_puppet.py</string>
     </array>
     <key>Name</key>
     <string>simian-migration.pkg</string>
