@@ -10,7 +10,7 @@ import time
 logging.basicConfig(filename='/var/log/puppet_run.log',level=logging.INFO)
 logger = logging.getLogger('puppet_run')
 
-puppet_cmd = ['sudo', '/usr/bin/puppet', 'agent', '--detailed-exitcodes', '--onetime', '--no-daemonize', '--verbose', '--environment', 'macs', '--waitforcert', '20']
+puppet_cmd = ['sudo', '/usr/bin/puppet', 'agent', '--detailed-exitcodes', '--onetime', '--no-daemonize', '--verbose', '--environment', 'macs', '--waitforcert', '20' '--config' '/etc/puppet/puppet.conf']
 run_lock_file = '/var/lib/puppet/state/agent_catalog_run.lock'
 disabled_lock_file = '/var/lib/puppet/state/agent_disabled.lock'
 max_delay = 1200

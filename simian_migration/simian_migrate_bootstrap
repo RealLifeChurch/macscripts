@@ -42,7 +42,7 @@ sudo pkgutil --forget com.googlecode.munki.launchd
 curl -o /tmp/install_puppet.py https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/simian_migration/install_puppet.py; python /tmp/install_puppet.py --serial --server $PUPPETSERVER
 
 # Run Puppet
-curl -o /tmp/puppet_run.py https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/simian_migration/puppet_run.py; python /tmp/puppet_run.py
+curl -o /tmp/puppet_run.py https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/simian_migration/puppet_run.py; sudo python /tmp/puppet_run.py
 touch /Users/Shared/.com.googlecode.munki.checkandinstallatstartup
 
 # Clean up a little
