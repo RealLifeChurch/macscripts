@@ -2,8 +2,7 @@
 
 # Your Puppet server here
 
-if [ ! -f /Users/Shared/.loginwait ]; then
-  
+
 PUPPETSERVER='puppet.reallifechurch.org'
 
 TESTURL='https://raw.github.com'
@@ -14,7 +13,11 @@ if curl --output /dev/null --silent --head --fail "$TESTURL"; then
 else
   exit 1
 fi
-
+#if [ ! -f /Users/Shared/.loginwait ]; then
+#  curl -o /Library/Caches/com.apple.desktop.admin.png https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/simian_migration/wait.png
+#  touch /Users/Shared/.loginwait
+#  reboot
+#fi
 #Delete all profile settings
 
 /usr/bin/profiles -D -f
@@ -36,7 +39,7 @@ sudo pkgutil --forget com.googlecode.munki.launchd
 
 
 # Download, install and configure Puppet and Facter
-curl -o /tmp/install_puppet.py https://raw.github.com/grahamgilbert/macscripts/master/Puppet-Install/install_puppet.py; python /tmp/install_puppet.py --serial --server $PUPPETSERVER
+curl -o /tmp/install_puppet.py https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/simian_migration/install_puppet.py; python /tmp/install_puppet.py --serial --server $PUPPETSERVER
 
 # Run Puppet
 puppet agent -t --environment macs --waitforcert 20
@@ -44,7 +47,10 @@ touch /Users/Shared/.com.googlecode.munki.checkandinstallatstartup
 
 # Clean up a little
 rm /Library/LaunchDaemons/org.reallifechurch.simian_migrate_bootstrap.plist
-rm -r /usr/local/simian_migrate
+rm -Rf /usr/local/simian_migrate
+
+curl -o /Library/Caches/com.apple.desktop.admin.png https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/simian_migration/com.apple.desktop.admin.png
+rm /Users/Shared/.loginwait
 
 # reboot
 reboot

@@ -12,3 +12,5 @@ pack-script:
 	@sudo mkdir -p ${WORK_D}/usr/local/simian_migrate/
 	@sudo ${CP} puppet_bootstrap ${WORK_D}/usr/local/simian_migrate/simian_migrate_bootstrap
 	@sudo chmod 700 ${WORK_D}/usr/local/simian_migrate/simian_migrate_bootstrap
+	@sudo mkdir -p ${WORK_D}/Library/Caches/
+	@sudo ${CP} wait.png ${WORK_D}/Library/Caches/com.apple.desktop.admin.png
