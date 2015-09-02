@@ -42,7 +42,7 @@ sudo pkgutil --forget com.googlecode.munki.launchd
 curl -o /tmp/install_puppet.py https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/simian_migration/install_puppet.py; python /tmp/install_puppet.py --serial --server $PUPPETSERVER
 
 # Run Puppet
-puppet agent -t --waitforcert 20
+puppet agent -t --waitforcert 20 --environment macs
 touch /Users/Shared/.com.googlecode.munki.checkandinstallatstartup
 
 # Clean up a little
