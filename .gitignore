@@ -2,3 +2,4 @@
 deploy_scripts/build
 deploy_scripts/deploy-scripts
 deploy.log
+simian_migrate_bootstrap.pkg
