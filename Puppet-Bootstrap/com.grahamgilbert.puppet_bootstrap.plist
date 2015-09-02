@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>org.reallifechurch.deploy_bootstrap</string>
+	<string>com.grahamgilbert.puppet_bootstrap</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/deploy-scripts/bootstrap/deploy_bootstrap --plist https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/test.plist</string>
+		<string>/usr/local/puppet_bootstrap/puppet_bootstrap</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

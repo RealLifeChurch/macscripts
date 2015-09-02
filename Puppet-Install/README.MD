@@ -4,8 +4,6 @@
 
 This script will download version 3.4.2 of Puppet and 1.7.4 of Facter and install them on a Mac OS X client.
 
-COPIED FROM GRAHAM GILBERT - https://github.com/grahamgilbert/macscripts/blob/master/Puppet-Install/
-
 ## Options
 
 The following options can be passed to the script:

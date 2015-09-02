@@ -6,8 +6,8 @@ TITLE=puppet_bootstrap
 PACKAGE_NAME=deploy_bootstrap
 REVERSE_DOMAIN=org.reallifechurch
 PAYLOAD=\
-    pack-script\
-	pack-Library-LaunchDaemons-org.reallifechurch.deploy_bootstrap.plist \
+    pack-script \
+		pack-Library-LaunchDaemons-org.reallifechurch.deploy_bootstrap.plist
 
 pack-script:
 	@sudo mkdir -p ${WORK_D}/usr/local/deploy-scripts/bootstrap

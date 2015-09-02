@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Your Puppet server here
-PUPPETSERVER='puppet.grahamgilbert.dev'
 
 TESTURL='https://raw.github.com'
 
@@ -25,16 +23,17 @@ cd /usr/local/deploy-scripts
 python /usr/local/deploy-scripts/rlc.py --plist https://raw.githubusercontent.com/RealLifeChurch/macscripts/master/deploy_scripts/test.plist
 
 # Run Puppet
-#puppet agent -t > /var/log/deploy.log
-#managedsoftwareupdate -v > /var/log/deploy.log
-#managedsoftwareupdate -v --installonly > /var/log/deploy.log
-#managedsoftwareupdate -v > /var/log/deploy.log
-#managedsoftwareupdate -v --installonly > /var/log/deploy.log
-#managedsoftwareupdate -v > /var/log/deploy.log
+puppet agent -t --environment macs > /var/log/deploy.log
+managedsoftwareupdate -v > /var/log/deploy.log
+managedsoftwareupdate -v --installonly > /var/log/deploy.log
+managedsoftwareupdate -v > /var/log/deploy.log
+managedsoftwareupdate -v --installonly > /var/log/deploy.log
+managedsoftwareupdate -v > /var/log/deploy.log
+puppet agent -t --environment macs > /var/log/deploy.log
 
 # Clean up a little
-#rm /Library/LaunchDaemons/org.reallifechurch.deploy.plist
-#rm -r /usr/local/puppet_bootstrap
+rm /Library/LaunchDaemons/org.reallifechurch.deploy_bootstrap.plist
+rm -Rf /usr/local/deploy-scripts
 
 # reboot
-#reboot
+reboot
