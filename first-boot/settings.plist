@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Packages</key>
+    <array>
+        <string>first-boot-pkgs/scriptRunner/scriptRunnerPkg.pkg</string>
+        <string>first-boot-pkgs/autotime_zone/AutoTimeZone.pkg</string>
+        <string>first-boot-pkgs/enable_ard_ssh/Enable_ARD_SSH.pkg</string>
+        <string>first-boot-pkgs/network_time/Enable_Network_Time.pkg</string>
+        <string>first-boot-pkgs/set_timezone/Set_US_LA_Timezone.pkg</string>
+        <string>first-boot-pkgs/ClearReg/ClearReg.pkg</string>
+        <string>first-boot-pkgs/configure_wifi/Configure_Wifi.pkg</string>
+        <string>Dock-1.2.pkg</string>
+        <string>dockutil-1.0.pkg</string>
+        <string>Staff_Bootstrap.pkg</string>
+    </array>
+    <key>Name</key>
+    <string>first-boot.pkg</string>
+    <key>Identifier</key>
+    <string>org.reallifechurch.first-boot-pkg</string>
+    <key>Version</key>
+    <string>2.4</string>
+</dict>
+</plist>

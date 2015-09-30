@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>catalogs</key>
+	<array>
+		<string>stable</string>
+		<string>apple_update_metadata</string>
+	</array>
+	<key>managed_installs</key>
+	<array>
+		<string>HewlettPackardPrinterDrivers</string>
+		<string>HewlettPackardPrinterDrivers</string>
+		<string>AdobeAIR</string>
+		<string>Adobe Flash Player Install Manager</string>
+		<string>FV2AuthPlugin</string>
+		<string>Fiery_Driver</string>
+		<string>Chrome</string>
+		<string>Google Drive</string>
+		<string>Google Voice and Video</string>
+		<string>Kyocera Driver</string>
+		<string>Java 8 Update</string>
+		<string>ScreenConnect.ClientSetup</string>
+		<string>Silverlight</string>
+		<string>Munkireport</string>
+		<string>rlcsupport</string>
+		<string>sal_osquery_conf</string>
+		<string>sal_scripts</string>
+	</array>
+	<key>optional_installs</key>
+	<array>
+		<string>Cyberduck</string>
+		<string>Dropbox</string>
+		<string>Logos</string>
+		<string>Excel_2016_Installer</string>
+		<string>OneNote_2016_Installer</string>
+		<string>PowerPoint_2016_Installer</string>
+		<string>Word_2016_Installer</string>
+		<string>Office Installer</string>
+		<string>Skype</string>
+		<string>Spotify</string>
+	</array>
+</dict>
+</plist>
